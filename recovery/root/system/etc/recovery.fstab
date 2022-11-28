@@ -17,5 +17,3 @@
 /dev/block/bootdevice/by-name/secure_storage  /sec_storage     ext4    rw,nosuid,nodev,noatime,discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0 wait,check
 /dev/block/bootdevice/by-name/misc            /misc            emmc    defaults       defaults
 /dev/block/bootdevice/by-name/modem_secure    /modem_secure    ext4    rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_secure_file:s0    wait,check
-
-
