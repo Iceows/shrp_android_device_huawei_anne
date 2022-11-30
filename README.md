@@ -5,7 +5,7 @@
 ```
 mkdir shrp
 cd shrp
-repo init -u https://github.com/SHRP/manifest.git -b v3_11.0
+repo init -u https://github.com/SHRP/manifest.git -b v3_9.0
 ```
 
 2- Then to sync up:
@@ -23,6 +23,10 @@ cd <source-dir>
 . build/envsetup.sh
 lunch omni_anne-eng
 mka recoveryimage
+or
+
+export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_anne-eng; mka recoveryimage
+
 ```
 
 5- The output dir
