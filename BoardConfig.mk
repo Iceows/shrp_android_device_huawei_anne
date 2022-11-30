@@ -45,7 +45,7 @@ BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres
 
 
 # Fstab and init.rc files
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
 # Recovery
@@ -54,7 +54,8 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd_backlight0/brightness
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
@@ -67,6 +68,8 @@ TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
+
+
 
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
