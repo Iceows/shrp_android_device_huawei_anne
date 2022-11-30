@@ -29,6 +29,7 @@ TARGET_2ND_CPU_VARIANT := generic
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_IMAGE_NAME := dummykernel
 BOARD_CUSTOM_BOOTIMG_MK := device/huawei/anne/custombootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tags_offset 0x0100
 
@@ -37,6 +38,11 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 TARGET_EXFAT_DRIVER := exfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+
+# System as root
+#BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres
+
 
 # Fstab and init.rc files
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
@@ -65,7 +71,7 @@ TW_USE_NEW_MINADBD := true
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-SHRP_MAINTAINER := Abdelhay_Ali
+SHRP_MAINTAINER := Yahia-Iceows
 SHRP_DEVICE_CODE := anne
 SHRP_FLASH := 1
 SHRP_FLASH := 1
