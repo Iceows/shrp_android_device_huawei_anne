@@ -74,26 +74,32 @@ TW_USE_NEW_MINADBD := true
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
+#SHRP-specific lines
 SHRP_MAINTAINER := Yahia-Iceows
 SHRP_DEVICE_CODE := anne
-SHRP_FLASH := 1
 SHRP_FLASH := 1
 SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := /sys/class/leds/torch/brightness
 SHRP_FONP_2 := 
 SHRP_FONP_3 := 
 SHRP_FLASH_MAX_BRIGHTNESS := 200
-
 SHRP_REC := /dev/block/platform/hi_mci.0/by-name/recovery_ramdisk
 SHRP_EXPRESS := true
 SHRP_EXPRESS_USE_DATA := true
 SHRP_NOTCH := true
-SHRP_EDL_MODE := 1
 SHRP_EXTERNAL := /external_sd
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usb_otg
-
-
+SHRP_PATH := device/huawei/anne
+#SHRP_OFFICIAL := true
+#SHRP_EDL_MODE := 1
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /sdcard1
+#SHRP_REC_TYPE := SAR
+#SHRP_DEVICE_TYPE := A_Only
+#SHRP_AB := true
+#SHRP_DARK := true
 
 
 # SHRP addons
