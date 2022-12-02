@@ -71,6 +71,7 @@ TW_USE_NEW_MINADBD := true
 
 
 
+
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
@@ -96,10 +97,25 @@ SHRP_PATH := device/huawei/anne
 #SHRP_EDL_MODE := 1
 SHRP_INTERNAL := /sdcard
 SHRP_EXTERNAL := /sdcard1
-#SHRP_REC_TYPE := SAR
-#SHRP_DEVICE_TYPE := A_Only
-#SHRP_AB := true
-#SHRP_DARK := true
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Normal
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
+# Use this flag only if your device is A/B.
+# Default (if not set) is no A/B device
+# Set this variable when true ONLY (do not use "false" or similiar)
+SHRP_AB := true
+
+# SHRP Dark mode, use this flag to have dark theme set by default
+# Default (if not set) is not using DARK mode
+# Set this variable when true ONLY (do not use "false" or similiar)
+SHRP_DARK := true
+
 
 
 # SHRP addons
