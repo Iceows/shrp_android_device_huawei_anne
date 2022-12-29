@@ -24,8 +24,13 @@ $(call inherit-product, device/huawei/anne/device.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-PRODUCT_NAME := twrp_anne
-PRODUCT_DEVICE := anne
+# Release name
+PRODUCT_RELEASE_NAME := anne
+DEVICE_PATH := device/huawei/anne
+
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := P20 Lite
 PRODUCT_MANUFACTURER := Huawei
+

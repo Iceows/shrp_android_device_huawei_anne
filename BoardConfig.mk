@@ -67,10 +67,15 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+
+
+# Fstab and init.rc files
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags
+TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
+
 
 # TWRP specific build flags
-TW_THEME := portrait_hdpi
+TW_THEME := shrp_dark_portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -126,7 +131,19 @@ PLATFORM_VERSION := 16.1.0
 
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
+BOARD_SEPOLICY_DIRS += \
+    device/huawei/anne/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    init.te \
+    kernel.te \
+    logd.te \
+    recovery.te \
+    tee.te \
+    vendor_init.te \
+
+
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
