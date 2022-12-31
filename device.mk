@@ -23,18 +23,18 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
+    
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \
     ro.build.date.utc
-
+	
 # Usb
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=manufacture,adb,mtp \
     ro.sys.usb.storage.type=mtp,adb \
     sys.usb.configfs=1 \
-    sys.usb.controller=ff100000.dwc3 \
+    sys.usb.controller=hisi-usb-otg \
     ro.secure=0 \
     ro.adb.secure=0 \
     ro.allow.mock.location=0 \

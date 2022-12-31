@@ -1,1 +1,1 @@
-allow logd rootfs:file { entrypoint };
+allow logd rootfs:file { entrypoint read execute getattr setattr open write };

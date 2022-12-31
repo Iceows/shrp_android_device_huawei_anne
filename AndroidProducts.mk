@@ -18,7 +18,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_anne.mk
-
+    
 COMMON_LUNCH_CHOICES := \
     twrp_anne-userdebug \
     twrp_anne-eng
+

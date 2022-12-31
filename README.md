@@ -21,8 +21,12 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 cd <source-dir>
 . build/envsetup.sh
-lunch omni_anne-eng
+lunch twrp_anne-eng
 mka recoveryimage
+or
+
+export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch twrp_anne-eng; mka recoveryimage
+
 ```
 
 5- The output dir
