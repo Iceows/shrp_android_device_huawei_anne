@@ -144,9 +144,20 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 SHRP_PATH := device/huawei/anne
 SHRP_MAINTAINER := Iceows
 SHRP_DEVICE_CODE := anne
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Treble
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
 #SHRP_OFFICIAL := true
 #SHRP_EDL_MODE := 1
 SHRP_EXPRESS := true
+SHRP_EXPRESS_USE_DATA := true
+
 SHRP_INTERNAL := /sdcard
 SHRP_EXTERNAL := /external_sd
 SHRP_OTG := /usb_otg
@@ -156,6 +167,5 @@ SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := /sys/class/leds/torch/brightness
 SHRP_REC_TYPE := normal
 SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DEVICE_TYPE := A/B
 SHRP_DARK := true
 
