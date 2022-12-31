@@ -48,13 +48,13 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # System as root
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres
+BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage
 
 # File System
 TARGET_EXFAT_DRIVER := exfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USERIMAGES_USE_EROFS := true
+TARGET_USERIMAGES_USE_EROFS := false
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -94,24 +94,6 @@ TW_INCLUDE_RESETPROP := true
 TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
 
-#SHRP-specific lines
-SHRP_PATH := device/huawei/anne
-SHRP_MAINTAINER := Iceows
-SHRP_DEVICE_CODE := anne
-#SHRP_OFFICIAL := true
-#SHRP_EDL_MODE := 1
-SHRP_EXPRESS := true
-SHRP_INTERNAL := /sdcard
-SHRP_EXTERNAL := /external_sd
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 1
-SHRP_FLASH_MAX_BRIGHTNESS := 1
-SHRP_CUSTOM_FLASHLIGHT := true
-SHRP_FONP_1 := /sys/class/leds/torch/brightness
-SHRP_REC_TYPE := normal
-SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
-SHRP_DEVICE_TYPE := A/B
-SHRP_DARK := true
 
 # Avb
 BOARD_AVB_ENABLE := true
@@ -142,9 +124,7 @@ BOARD_SEPOLICY_UNION += \
     logd.te \
     recovery.te \
     tee.te \
-    vendor_init.te \
-
-
+    vendor_init.te
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
@@ -156,3 +136,26 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+    
+# ---------------------------------------------    
+# SHRP-specific lines
+# --------------------------------------------- 
+
+SHRP_PATH := device/huawei/anne
+SHRP_MAINTAINER := Iceows
+SHRP_DEVICE_CODE := anne
+#SHRP_OFFICIAL := true
+#SHRP_EDL_MODE := 1
+SHRP_EXPRESS := true
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /external_sd
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_FLASH_MAX_BRIGHTNESS := 1
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := /sys/class/leds/torch/brightness
+SHRP_REC_TYPE := normal
+SHRP_REC := /dev/block/bootdevice/by-name/erecovery_ramdisk
+SHRP_DEVICE_TYPE := A/B
+SHRP_DARK := true
+
