@@ -48,7 +48,7 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # System as root
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage
+BOARD_ROOT_EXTRA_FOLDERS := d hw_odm twres splash2 sec_storage mnvm2:0 modem_fw
 
 # File System
 TARGET_EXFAT_DRIVER := exfat
@@ -67,9 +67,8 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 
-
 # Fstab and init.rc files
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/twrp.flags
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 
 
