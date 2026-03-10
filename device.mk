@@ -16,6 +16,12 @@
 
 LOCAL_PATH := device/huawei/anne
 
+# Crypto
+EMUI9_FBE_CRYPTO := true
+
+# Inherit from twrp-common
+$(call inherit-product, device/huawei/twrp-common/kirin.mk)
+
 # Kernel
 PRODUCT_COPY_FILES += \
     device/huawei/anne/dummykernel:kernel
@@ -23,7 +29,11 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-    
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.hardware.keystore=hi6250 \
+	ro.hardware.gatekeeper=hi6250
+
 # Blacklist
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \

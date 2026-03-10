@@ -74,6 +74,10 @@ TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+
 # TWRP specific build flags
 TW_THEME := shrp_dark_portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
