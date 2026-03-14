@@ -14,7 +14,23 @@ service fixlinks /system/bin/fixlinks.sh
     disabled
     seclabel u:r:recovery:s0
 
-service oeminfo_nvm /system/bin/true
+service oeminfo_nvm /system/sbin/true
     disabled
+    seclabel u:r:recovery:s0
 
+on boot
+    restorecon /vendor/bin/aptouch_daemon
+    start aptouch
 
+# For touchscreen
+service aptouch /vendor/bin/aptouch_daemon
+    user root
+    group root system shell wakelock
+    disabled
+    seclabel u:r:aptouch:s0
+
+on property:odm.thp.service_enable=1
+    start aptouch
+
+on property:odm.thp.service_enable=0
+    stop aptouch
