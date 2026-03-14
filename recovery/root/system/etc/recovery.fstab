@@ -6,12 +6,13 @@
 /dev/block/bootdevice/by-name/system     /newsys     ext4      defaults        defaults
 /dev/block/bootdevice/by-name/odm        /odm        ext4      defaults        defaults
 
-/dev/block/bootdevice/by-name/userdata   /data       f2fs      defaults        length=-16384,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M
+/dev/block/bootdevice/by-name/userdata   /data	     f2fs     nosuid,nodev,noatime,discard,inline_data,inline_xattr	wait,check,fileencryption=aes-256-xts:aes-256-cts
 /dev/block/bootdevice/by-name/cust       /cust       ext4      defaults        defaults
 
 /dev/block/bootdevice/by-name/misc       /misc       emmc      defaults        defaults
-/dev/block/bootdevice/by-name/boot       /boot       emmc      defaults        defaults
-/dev/block/bootdevice/by-name/recovery   /recovery   emmc      defaults        defaults
+
+/dev/block/bootdevice/by-name/kernel              /boot          emmc    defaults        recoveryonly
+/dev/block/bootdevice/by-name/recovery_ramdisk    /recovery      emmc    defaults        recoveryonly
 
 /dev/block/sda1                          /usb        vfat      defaults        defaults
 /dev/block/mmcblk1p1                     /sdcard     vfat      defaults        defaults
@@ -20,5 +21,7 @@
 /dev/block/by-name/modem_om              /modem_log    ext4    rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_log_file:s0    wait,check
 
 /dev/block/bootdevice/by-name/cache              /cache      ext4      defaults        defaults
-/dev/block/bootdevice/by-name/splash2            /splash2    ext4      defaults        defaults
-/dev/block/bootdevice/by-name/secure_storage     /sec_storage    ext4        defaults        recoveryonly
+
+
+/dev/block/bootdevice/by-name/splash2            /splash2     ext4    rw,nosuid,nodev,noatime,data=ordered wait,check,nofail
+/dev/block/bootdevice/by-name/secure_storage     /sec_storage ext4    rw,nosuid,nodev,noatime,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0 wait,nofail
